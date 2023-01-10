@@ -12,6 +12,9 @@ class PodcastAdminController extends AbstractController
     #[Route('/podcast/admin', name: 'app_podcast_admin')]
     public function index(PodcastRepository $podcastRepository): Response
     {
+        $podcasts = $podcastRepository->findBy([
+            'usuario' => $this->getUser()
+        ]);
         return $this->render('podcast_admin/index.html.twig', [
             'podcastsAdmin' => $podcastRepository->findAll(),
         ]);

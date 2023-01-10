@@ -10,8 +10,9 @@ class FavoritoController extends AbstractController
 {
     #[Route('/favorito', name: 'app_favorito')]
     public function favoritos(PodcastRepository $podcastRepository) {
+        
         $podcasts = $podcastRepository->findBy([
-            'favorito' => true
+            'favorito' => $this->getUser()
         ]);
 
         return $this->render('index/index.html.twig', [

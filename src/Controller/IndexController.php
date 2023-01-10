@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Usuario;
 use App\Repository\PodcastRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,7 +14,9 @@ class IndexController extends AbstractController
     #[Route('/', name: 'app_index')]
     public function index( PodcastRepository $podcastRepository): Response
     {
-        $podcasts = $podcastRepository->findAll();
+        $podcasts = $podcastRepository->findBy([
+            'usuario' => $this->getUser()
+        ]);
         return $this->render('index/index.html.twig', [
             'podcasts' => $podcasts,
         ]);

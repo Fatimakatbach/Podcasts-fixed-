@@ -35,13 +35,7 @@ class PodcastController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_podcast_show', methods: ['GET'])]
-    public function show(Podcast $podcast): Response
-    {
-        return $this->render('podcast/show.html.twig', [
-            'podcast' => $podcast,
-        ]);
-    }
+  
 
     #[Route('/{id}/edit', name: 'app_podcast_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Podcast $podcast, PodcastRepository $podcastRepository): Response
