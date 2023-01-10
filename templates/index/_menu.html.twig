@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+{% if app.user %} 
+  <a class="navbar-brand" href="{{ path('app_index') }}">Mis podcasts</a>
+  <button class="navbar-toggler p-0 border-0"
+    type="button"
+    data-toggle="offcanvas">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+ 
+  
+    <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+    <a class="nav-link"  href="{{ path('app_favorito') }}">
+    Favoritos
+    </a>
+    </li>
+    </ul>
+     {% if is_granted('ROLE_ADMIN') %}
+
+    <div class="d-md-flex my-2 my-lg-0">
+      <a class="btn btn-outline-success mr-2 w-100" title="Gestión de usuarios" href="{{ path('app_usuario_index')}}">
+        Usuarios
+      </a>
+      <a class="btn btn-outline-success mr-2 w-100" title="Gestión de podcasts" href="{{ path('app_podcast_admin')}}">
+        Podcasts
+      </a>
+    </div>
+      {% endif %}
+
+    <div class="d-md-flex my-2 my-lg-0">
+      <a class="btn btn-outline-success mr-2 w-100" title="Añadir podcast" href="{{ path('app_podcast_new')}}">
+        <span class="oi oi-plus" title="añadir" aria-hidden="true"></span>
+         Podcast
+      </a>
+    </div>
+ 
+    <form class="form-inline">
+        <input class="form-control mr-sm-2"
+          type="text"
+          placeholder="Buscar"
+          aria-label="Search" />
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">
+          Buscar
+        </button>
+      </form>
+
+      {{include('usuario/_logout.html.twig')}}
+
+ {% endif %}
+  </div>
+</nav>
