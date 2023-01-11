@@ -2,13 +2,15 @@
 
 namespace App\Controller;
 
+use App\Repository\PodcastRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class BusquedaController extends AbstractController
 {
-/* #[Route('/buscar/{busqueda}', name: 'app_busqueda')]
+ #[Route('/buscar/{busqueda}', name: 'app_busqueda')]
     public function busqueda(string $busqueda, PodcastRepository $podcastRepository, Request $request) {
         $formularioBusqueda = $this->createForm(BuscadorType::class);
         $formularioBusqueda->handleRequest($request);
@@ -34,5 +36,5 @@ class BusquedaController extends AbstractController
         ]);
     
 
-    }*/
+    }
 }

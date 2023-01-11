@@ -15,6 +15,8 @@
                 <th>Roles</th>
                 <th>Nombre</th>
                 <th>Apellidos</th>
+                <th>N podcasts</th>
+
             
             </tr>
         </thead>
@@ -26,6 +28,7 @@
                 <td>{{ usuario.roles ? usuario.roles|json_encode : '' }}</td>
                 <td>{{ usuario.Nombre }}</td>
                 <td>{{ usuario.Apellidos }}</td>
+                <td>{{ usuario.podcasts|length }}</td>
                 <td>
                     <a href="{{ path('app_usuario_show', {'id': usuario.id}) }}">show</a>
                     <a href="{{ path('app_usuario_edit', {'id': usuario.id}) }}">edit</a>

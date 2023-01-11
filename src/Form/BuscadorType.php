@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Buscador;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -25,7 +26,8 @@ class BuscadorType extends AbstractType
             ->add('Buscar', SubmitType::class, [
                 'label' => 'Buscar',
                 'attr' => [
-                    'class' => 'btn-outline-primary my-2 my-sm-0']
+                    'class' => 'btn-outline-primary my-2 my-sm-0'
+                    ]
             ])
 
         ;
